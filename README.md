@@ -28,3 +28,9 @@ The site uses semantic HTML, CSS, and a small dependency-free script, with no an
 ## Content provenance
 
 The September 15 expansion uses José's supplied project descriptions, his Resume/CV, relevant career and bootcamp discussion, and the public repository READMEs verified during the update. It distinguishes bootcamp-provided material from personal contributions, historical ML experiments from the current evaluation pipeline, and the 4.8 MW fusion allocation from the 12 MW facility budget. LLNL work is described as internship experience without an invented source-code link.
+
+## License
+
+The site's code — the generator, templates, stylesheet and script — is MIT licensed,
+see [LICENSE](LICENSE). The written content, the CV and resume PDFs, and the project
+case studies are mine and are not offered under that licence.
