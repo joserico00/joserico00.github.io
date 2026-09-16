@@ -1,0 +1,384 @@
+[
+  {
+    "slug": "genomics",
+    "title": "Teaching transformers to read DNA",
+    "category": "AI + HIGH-PERFORMANCE COMPUTING",
+    "context": "DNA tokenization · NERSC Perlmutter · 2026",
+    "summary": "Fine-tuning DNABERT and a from-scratch Transformer to classify regulatory DNA from ENCODE, packaged as a bootcamp curriculum with Slurm job generation and distributed training on Perlmutter.",
+    "tags": [
+      "PyTorch",
+      "Hugging Face",
+      "SLURM",
+      "NERSC"
+    ],
+    "github": "https://github.com/joserico00/Intro-to-HPC-Bootcamp-Teaching-Students-to-Leverage-LLMs-for-Regulatory-Genomics-on-HPC",
+    "themes": [
+      "ai-hpc",
+      "research",
+      "teaching"
+    ],
+    "details": "Students new to HPC rarely get to run a real genome language model end to end. This curriculum walks two groups from tokenizing ENCODE sequences for K562 and astrocyte cell lines, through fine-tuning DNABERT and building a custom Transformer, to generating `#SBATCH` scripts and launching multi-GPU jobs with PyTorch DDP. Notebooks include pre-flight checks, a data-provenance section with ENCODE accessions, and a reference paper.",
+    "body_html": "<h2>The problem</h2><p>Scientific machine learning brings together concepts that are often taught separately: biological data, tokenization, neural networks, and the practical work of running jobs on a supercomputer. This project made that full workflow accessible within a 10–12-hour bootcamp project.</p>\n<h2>What I built</h2><p>I developed and tested DNA sequence-classification workflows using PyTorch, Hugging Face, and DNABERT-style transformers on NERSC Perlmutter and ALCF Polaris and Aurora. The work covered CPU baselines, GPU-accelerated training, and fixed-configuration experiments to isolate acceleration benefits.</p><p>I created Jupyter lessons and diagrams explaining embeddings, transformer architectures, and classification pipelines, alongside SLURM workflows using <code>sbatch</code>, <code>squeue</code>, and <code>sacct</code>.</p>\n<div class=\"case-flow\" aria-label=\"Workflow\"><span>DNA sequences</span><b aria-hidden=\"true\">→</b><span>Tokenization</span><b aria-hidden=\"true\">→</b><span>Transformer training</span><b aria-hidden=\"true\">→</b><span>Evaluation</span></div>\n<h2>A smaller sequence representation</h2><p>I compared 6-mer and byte-pair encoding (BPE) tokenization. BPE used substantially fewer tokens per sequence while achieving similar accuracy in the comparison.</p>\n<table class=\"data-table\"><caption class=\"sr-caption\">DNA tokenization comparison</caption><thead><tr><th scope=\"col\">Tokenization</th><th scope=\"col\">Tokens / sequence</th><th scope=\"col\">Accuracy</th></tr></thead><tbody><tr><th scope=\"row\">6-mer</th><td>195</td><td>81%</td></tr><tr><th scope=\"row\">BPE</th><td>34</td><td>80%</td></tr></tbody></table>\n<h2>Leading the project team</h2><p>As project lead, I coached a 10-student team within the 87-student bootcamp. Two sub-teams took different approaches and presented their findings to peers and laboratory staff.</p><ul><li>One sub-team trained a DNA transformer from scratch, compared five tokenizations, and achieved a validation AUROC of 0.887 using overlapping 6-mers.</li><li>The second fine-tuned DNABERT to classify CTCF binding on K562 data, achieving 91.7% evaluation accuracy and 99.1% training accuracy after about 17 minutes of training. The work also included external testing on an astrocyte CTCF dataset.</li></ul><p>These are results from the separate student experiments I guided; the tokenization comparison above is a distinct experiment.</p>\n<h2>Making the work reusable</h2><p>I authored a first-time project-lead guide and a reusable project template to help future interns scope a project, support a team, and prepare technical presentations.</p><h2>Explore the curriculum</h2><p>The public repository includes the two learning tracks, notebook pre-flight checks, ENCODE data provenance, and job-generation workflows for distributed training on Perlmutter.</p>",
+    "role": "Research Intern & Bootcamp Project Lead",
+    "org": "Argonne National Laboratory",
+    "date": "June – August 2026",
+    "featured": true
+  },
+  {
+    "slug": "compute-finder",
+    "title": "Finding the right supercomputer for the job",
+    "category": "AI + HIGH-PERFORMANCE COMPUTING",
+    "context": "ALCF compute finder · Streamlit · 2026",
+    "summary": "A decision tool that scores Argonne Leadership Computing Facility systems against a workload's requirements, with the rule that an unknown spec never satisfies a requirement.",
+    "tags": [
+      "Python",
+      "Streamlit",
+      "stlite"
+    ],
+    "github": "https://github.com/joserico00/alcf-compute-finder",
+    "themes": [
+      "ai-hpc",
+      "software"
+    ],
+    "details": "Choosing between Polaris, Aurora and the other ALCF machines means cross-referencing scattered documentation. The app holds a curated table of system specs with verification dates, a ranking engine that explains each score, and a browser-only deployment through stlite so it runs without a server. Two test suites cover the ranking logic, one with a mock Streamlit and one with the official AppTest harness.",
+    "featured": false
+  },
+  {
+    "slug": "fusion-energy",
+    "title": "Budgeting megawatts for fusion science",
+    "category": "AI + HIGH-PERFORMANCE COMPUTING",
+    "context": "Intro to HPC Bootcamp · 2025",
+    "summary": "Energy analysis of TOP500 systems and fusion workloads, ending in a job scheduler that packs research projects under a 4.8 MW power cap.",
+    "tags": [
+      "Python",
+      "pandas",
+      "Matplotlib",
+      "Jupyter"
+    ],
+    "github": "https://github.com/joserico00/Intro-to-HPC-Bootcamp-2025-Fusion-Energy-Workloads",
+    "themes": [
+      "ai-hpc",
+      "data",
+      "teaching"
+    ],
+    "details": "The bootcamp supplied the lesson text, starter code, and synthetic datasets. My work includes executed analyses, energy-per-job and science-per-kWh calculations, and a greedy scheduler that packs fusion jobs under 4.8 MW: 40% of the facility’s 12 MW budget. This complements my role mentoring students on the broader energy-constrained HPC project.",
+    "featured": false
+  },
+  {
+    "slug": "epidemic-modeling",
+    "title": "Simulating an outbreak in a notebook",
+    "category": "AI + HIGH-PERFORMANCE COMPUTING",
+    "context": "Intro to HPC Bootcamp · epidemic modeling · 2026",
+    "summary": "Teaching notebooks that build an SIR epidemic model in pure NumPy, run stochastic ensembles, and check results against committed reference metrics.",
+    "tags": [
+      "Python",
+      "NumPy",
+      "Matplotlib",
+      "Jupyter"
+    ],
+    "github": "https://github.com/joserico00/Intro-to-HPC-Modeling-Epidemic-Outbreaks",
+    "themes": [
+      "ai-hpc",
+      "research",
+      "teaching"
+    ],
+    "details": "Two group tracks and a master notebook take students from a single-day SIR step to full simulations with seeded synthetic data. A small helper module, an environment file, expected output figures and a reference metrics file make every run reproducible, and an HTML preview lets readers see the results without opening Jupyter.",
+    "featured": false
+  },
+  {
+    "slug": "power-outages",
+    "title": "Heatwaves, outages, and the people who need power",
+    "category": "AI + HIGH-PERFORMANCE COMPUTING",
+    "context": "Intro to HPC Bootcamp · 2023",
+    "summary": "County-level analysis of the June 2016 Southwest heatwave, joining outage records, temperatures and Medicare data on electricity-dependent medical equipment.",
+    "tags": [
+      "Python",
+      "pandas",
+      "Folium",
+      "Jupyter",
+      "Perlmutter"
+    ],
+    "github": "https://github.com/joserico00/Intro-to-HPC-Bootcamp-2023-Power-Outages",
+    "themes": [
+      "ai-hpc",
+      "data",
+      "research"
+    ],
+    "details": "As a 2023 Intro to HPC Bootcamp participant, I worked with a team to analyze temperature and power outages during the June 2016 Southwest heatwave. We used Python, pandas, and Matplotlib on Perlmutter and considered the impact on people who rely on electricity-dependent medical equipment. The project combined time-series analysis and county-level mapping, and we presented our findings in a lightning talk.",
+    "featured": false
+  },
+  {
+    "slug": "nvsrco",
+    "title": "Making network defense accessible",
+    "category": "NETWORK DEFENSE",
+    "context": "NVSRCO · UPR Río Piedras · 2022–2025",
+    "summary": "An open-source vulnerability-scanning platform that discovers hosts, scans ports with Nmap, runs OpenVAS assessments, and publishes results to an interactive dashboard.",
+    "tags": [
+      "Python",
+      "Nmap",
+      "OpenVAS",
+      "Dash",
+      "Docker",
+      "WireGuard"
+    ],
+    "github": "https://github.com/joserico00/NVSRCO",
+    "themes": [
+      "security",
+      "software"
+    ],
+    "details": "Organizations with small security budgets need visibility into their exposed services. NVSRCO chains discovery, port scanning and OpenVAS scanning into CSV results, visualizes them in a Dash web dashboard, and connects remote client networks to the scanning server over WireGuard, with Docker files for the server and clients. The work produced a graduate technical report archived at the University of Puerto Rico.",
+    "body_html": "<h2>The challenge</h2><p>Organizations with limited security budgets need visibility into the devices on their networks, the services they expose, and the vulnerabilities that deserve attention. NVSRCO brings those tasks together using open-source tools.</p><h2>What I built</h2><p>I developed a scanning pipeline that discovers hosts, enumerates ports with Nmap, creates and runs OpenVAS assessment tasks, and exports findings as CSV reports. A Dash dashboard makes those results easier to explore.</p><div class=\"case-flow\" aria-label=\"Scanning workflow\"><span>Host discovery</span><b aria-hidden=\"true\">→</b><span>Nmap</span><b aria-hidden=\"true\">→</b><span>OpenVAS</span><b aria-hidden=\"true\">→</b><span>CSV reports + Dash</span></div><h2>Connecting remote networks</h2><p>The published repository includes WireGuard scripts for connecting remote client networks, Docker configurations for the scanner and dashboard, and automation wrappers for the assessment stages.</p><h2>Research output</h2><p>The project grew out of my graduate research at UPR Río Piedras. The repository preserves the May 2025 defense version alongside the scanner, and the technical report is archived in the University of Puerto Rico institutional repository.</p>",
+    "role": "Graduate Researcher & Software Developer",
+    "org": "University of Puerto Rico · Río Piedras",
+    "date": "August 2022 – December 2025",
+    "featured": true
+  },
+  {
+    "slug": "traffic-detection",
+    "title": "Evaluating malicious traffic detection",
+    "category": "SECURITY + MACHINE LEARNING",
+    "context": "IoT-23 intrusion detection · Coursework and continued development",
+    "summary": "A capture-aware IoT-23 pipeline that prevents preprocessing leakage and evaluates a neural network against a logistic-regression baseline.",
+    "tags": [
+      "Python",
+      "TensorFlow/Keras",
+      "scikit-learn",
+      "pandas"
+    ],
+    "github": "https://github.com/joserico00/Deep-Learning-for-Malicious-Traffic-Detection",
+    "themes": [
+      "security",
+      "data"
+    ],
+    "details": "The current notebook holds entire captures apart for training, validation, and testing; fits preprocessing on the training set only; and trains class-weighted models. It reports precision, recall, F1, balanced accuracy, ROC AUC, and precision-recall AUC. Earlier ANN, CNN, LSTM, and Transformer experiments are preserved as historical coursework, with their limitations documented separately. Their saved scores are not presented as validated performance of the current pipeline.",
+    "featured": false
+  },
+  {
+    "slug": "ctf-challenges",
+    "title": "Capture-the-flag for first-timers",
+    "category": "CYBERSECURITY EDUCATION",
+    "context": "Workshop CTF challenges · UPR · 2023–2025",
+    "summary": "Beginner-to-intermediate challenges built for cybersecurity workshops, covering cryptography, forensics, Linux commands, scripting, steganography and log analysis.",
+    "tags": [
+      "Python",
+      "PyCryptodome",
+      "Linux"
+    ],
+    "github": "https://github.com/joserico00/ctf-challenges",
+    "themes": [
+      "security",
+      "teaching"
+    ],
+    "details": "Each challenge ships with a generator script that builds the puzzle directory, a walkthrough, and a flag, so instructors can rebuild a fresh workshop set in minutes. Categories include Caesar and AES ciphers, hash cracking, EXIF-based photo forensics, find and grep exercises, and a full README indexing difficulty and learning goals.",
+    "featured": false
+  },
+  {
+    "slug": "tor-link-checker",
+    "title": "Checking hidden-service links through Tor",
+    "category": "SECURITY TOOLING",
+    "context": "Tor link checker · Docker · 2026",
+    "summary": "A Docker-based Tor SOCKS proxy and Python scripts for finding keyword matches and checking whether .onion links respond.",
+    "tags": [
+      "Python",
+      "Tor",
+      "Docker Compose",
+      "requests"
+    ],
+    "github": "https://github.com/joserico00/tor-darkweb-link-checker",
+    "themes": [
+      "security",
+      "software"
+    ],
+    "details": "Researchers monitoring mentions of a region or organization on hidden services need a repeatable, isolated way to test links. The proxy runs in Docker, the checker routes every request through it, caches links already visited, and writes matches for the keyword list to a results file.",
+    "featured": false
+  },
+  {
+    "slug": "solar-fleet",
+    "title": "Software for a solar cooperative",
+    "category": "COMMUNITY SOFTWARE",
+    "context": "Solar Fleet Reporter · Salinas, PR · 2026",
+    "summary": "Monthly energy collection from FranklinWH and Sol-Ark portals, net-metering and billing calculations, and homeowner invoices for a solar cooperative in Puerto Rico.",
+    "tags": [
+      "Python",
+      "Streamlit",
+      "Playwright"
+    ],
+    "github": "https://github.com/joserico00/Solar-Fleet-App",
+    "themes": [
+      "software",
+      "data"
+    ],
+    "details": "A cooperative managing several sites needs each homeowner's production, consumption and bill every month without manual portal visits. The app isolates billing math in a core module, uses one connector per inverter vendor, generates invoices in Spanish, and is covered by a test suite over real payload shapes with synthetic customer data.",
+    "body_html": "<h2>The problem</h2><p>The cooperative’s energy data is spread across Sol-Ark, FranklinWH, and sonnen portals. Monthly billing needs a consistent way to collect that data and apply the cooperative’s net-metering rules and per-site rates.</p>\n<h2>What I built</h2><p>I built Solar Fleet Reporter, a local Python/Streamlit application that retrieves monthly energy data through APIs and Playwright-driven portal logins. The application combines collection, billing calculations, and report generation into one workflow.</p>\n<div class=\"case-flow\" aria-label=\"Monthly reporting workflow\"><span>Energy portals</span><b aria-hidden=\"true\">→</b><span>Monthly site data</span><b aria-hidden=\"true\">→</b><span>Billing rules</span><b aria-hidden=\"true\">→</b><span>Member statements</span></div>\n<h2>From energy data to statements</h2><ul><li>Collect monthly data from three solar-platform providers.</li><li>Apply three net-metering billing cases and per-site rates.</li><li>Export CSV and Excel reports.</li><li>Generate printable homeowner statements.</li><li>Flag offline sites for follow-up.</li></ul>\n<div class=\"result\"><strong>Billing logic tested offline</strong><p>The application separates billing calculations from portal connectors, with tests using synthetic customer data and representative payload shapes.</p></div>\n<h2>Why this work matters to me</h2><p>This is volunteer software development for my community. The application gives the cooperative a repeatable process for preparing monthly billing and member statements across several energy platforms.</p>",
+    "role": "Volunteer Software Developer",
+    "org": "Cooperativa de Energía La Margarita · Abeyno Coop",
+    "date": "2024 – Present",
+    "featured": true
+  },
+  {
+    "slug": "reporter-assay",
+    "title": "From plate reader to publication figure",
+    "category": "RESEARCH SOFTWARE",
+    "context": "Reporter assay analysis · 2026",
+    "summary": "A notebook that turns luciferase reporter-assay spreadsheets into tidy data, per-condition statistics against a baseline, and publication-ready plots.",
+    "tags": [
+      "Python",
+      "pandas",
+      "seaborn",
+      "Jupyter"
+    ],
+    "github": "https://github.com/joserico00/reporter-assay-analysis",
+    "themes": [
+      "research",
+      "data"
+    ],
+    "details": "Wet-lab spreadsheets arrive in wide plate layouts with two header rows. The notebook loads them with a reusable plate reader, reshapes to tidy form, computes summaries and baseline comparisons, and draws bar-with-points plots for the overview and each dose. Real lab data stays out of git; a synthetic example workbook demonstrates the flow.",
+    "featured": false
+  },
+  {
+    "slug": "game-catalog",
+    "title": "Enriching a game catalog at scale",
+    "category": "DATA ENGINEERING",
+    "context": "1UPPER · data pipeline · 2026",
+    "summary": "A resumable ingestion pipeline that pulls video-game metadata from IGDB, enriches it with HowLongToBeat playtimes, and exports clean CSVs for database import.",
+    "tags": [
+      "Python",
+      "IGDB API",
+      "HowLongToBeat",
+      "dotenv"
+    ],
+    "github": "https://github.com/joserico00/game-catalog-enrichment-pipeline",
+    "themes": [
+      "data",
+      "software"
+    ],
+    "details": "Built for the 1UPPER software-engineering project, the pipeline handles rate limits with backoff, walks IGDB with keyset pagination, checkpoints progress so interrupted runs resume, and writes its cache atomically. Credentials come from the environment, tests cover the parsing, and the README includes a responsible-use section.",
+    "featured": false
+  },
+  {
+    "slug": "yt2ogg",
+    "title": "Seamless loops for the virtual tabletop",
+    "category": "AUDIO TOOLING",
+    "context": "yt2ogg · desktop and CLI · 2026",
+    "summary": "A tool that downloads a track, finds the beat grid, and renders a gapless Ogg loop for Foundry Virtual Tabletop, from either a GUI or the command line.",
+    "tags": [
+      "Python",
+      "NumPy",
+      "yt-dlp",
+      "FFmpeg",
+      "PyInstaller"
+    ],
+    "github": "https://github.com/joserico00/yt2ogg",
+    "themes": [
+      "software"
+    ],
+    "details": "Game masters want ambient music that loops without a click. yt2ogg processes audio in float32, normalizes with constant gain, tracks beats with a dynamic-programming grid written in pure NumPy, and cuts on the grid so the loop point lands on a downbeat. A Tk GUI and a CLI share the same pipeline, and a build script produces standalone executables with self-tests.",
+    "featured": false
+  },
+  {
+    "slug": "seniory",
+    "title": "Connecting seniors with caregivers",
+    "category": "COMMUNITY SOFTWARE",
+    "context": "Seniory · Bloomberg hackathon, UPR Río Piedras · 2022 · 5th place",
+    "summary": "A desktop app where elders post help requests and nearby caregivers find them by distance, built in a weekend for Bloomberg's hackathon at UPRRP.",
+    "tags": [
+      "Python",
+      "PySimpleGUI",
+      "SQLite",
+      "geopy"
+    ],
+    "github": "https://github.com/joserico00/Seniory",
+    "themes": [
+      "software"
+    ],
+    "details": "Built for Bloomberg’s 2022 hackathon at UPR Río Piedras, Seniory connects older adults requesting help with nearby caregivers or volunteers. The desktop prototype uses Python, PySimpleGUI, SQLite, and geopy to store requests and sort them by distance. The project placed fifth; the published repository includes setup instructions and demo IDs.",
+    "featured": false
+  },
+  {
+    "slug": "operating-systems",
+    "title": "A distributed file system from sockets up",
+    "category": "SYSTEMS PROGRAMMING",
+    "context": "Operating systems course · UPR Río Piedras · 2022",
+    "summary": "Course projects covering a socket-based distributed file system with a metadata server and data nodes, page-replacement algorithms, and a thread scheduling simulation.",
+    "tags": [
+      "Python",
+      "sockets",
+      "SQLite"
+    ],
+    "github": "https://github.com/joserico00/Operating-System-Projects",
+    "themes": [
+      "systems"
+    ],
+    "details": "The distributed file system splits files into blocks across data nodes and tracks them in a metadata server. Companion projects implement FIFO, optimal and WSClock page replacement and a multi-threaded scheduler with simulated devices.",
+    "featured": false
+  },
+  {
+    "slug": "university-work",
+    "title": "Coursework, labs, and research foundations",
+    "category": "COURSEWORK ARCHIVE",
+    "context": "University work · UPR Río Piedras · 2020–2025",
+    "summary": "Organized coursework across cybersecurity, data science, machine learning, HPC, software development and algorithms, each folder with its own README.",
+    "tags": [
+      "Python",
+      "Jupyter",
+      "Java",
+      "JavaScript",
+      "Ghidra"
+    ],
+    "github": "https://github.com/joserico00/university-work",
+    "themes": [
+      "systems",
+      "security",
+      "data",
+      "teaching"
+    ],
+    "details": "Highlights include a CNN for malware image classification on the Malimg dataset, a mental-health analysis joining FEMA disaster declarations, Ghidra decompilation notes from reverse-engineering labs, early network-scanner prototypes that grew into NVSRCO, a D3 Gapminder visualization, and an accessibility audit with pa11y.",
+    "featured": false
+  },
+  {
+    "slug": "novel-scraper",
+    "title": "A minimal chapter scraper",
+    "category": "SCRIPTING",
+    "context": "novel-scraper · 2026",
+    "summary": "A short Python script that fetches a web-novel chapter and extracts its text with requests and BeautifulSoup.",
+    "tags": [
+      "Python",
+      "requests",
+      "BeautifulSoup"
+    ],
+    "github": "https://github.com/joserico00/novel-scraper",
+    "themes": [
+      "software"
+    ],
+    "details": "A small utility rather than a product. It targets one site's chapter layout and prints the chapter text; the README is candid about the limitations and what a fuller version would add.",
+    "featured": false
+  },
+  {
+    "slug": "research-infrastructure",
+    "title": "Infrastructure for cyber researchers",
+    "category": "DEVOPS + CYBER-RESEARCH SOFTWARE",
+    "context": "Lawrence Livermore National Laboratory · 2024",
+    "summary": "Containerized services for binary-feature search and language-model-assisted research-paper reading at Lawrence Livermore National Laboratory.",
+    "tags": [
+      "Docker",
+      "GitLab CI/CD",
+      "Elasticsearch",
+      "Ghidra BSim",
+      "Ollama",
+      "Llama 3",
+      "PaperQA"
+    ],
+    "github": null,
+    "themes": [
+      "security",
+      "software",
+      "research"
+    ],
+    "details": "",
+    "body_html": "<h2>The research setting</h2><p>Cyber researchers need software infrastructure that makes specialized tools usable in day-to-day work. During my internship, I worked on application containerization and GitLab-based continuous integration and deployment in an Agile environment.</p>\n<h2>Binary-feature search</h2><p>I built an Elasticsearch container to store binary features extracted by Ghidra BSim. The service supported security researchers querying malware-like samples at scale.</p>\n<div class=\"case-flow\" aria-label=\"Binary-feature workflow\"><span>Ghidra BSim features</span><b aria-hidden=\"true\">→</b><span>Elasticsearch container</span><b aria-hidden=\"true\">→</b><span>Research queries</span></div>\n<h2>A language-model service for research reading</h2><p>I also deployed a Docker-hosted Ollama service running Llama 3 to support the PaperQA PDF-reading application over LLNL research papers.</p>\n<div class=\"case-flow\" aria-label=\"Research-reading service\"><span>PaperQA</span><b aria-hidden=\"true\">↔</b><span>Docker-hosted Ollama</span><b aria-hidden=\"true\">→</b><span>Llama 3</span></div>\n<h2>Deployment and collaboration</h2><p>I containerized cyber-research applications and integrated GitLab CI/CD pipelines into the team’s workflows. My contribution focused on supporting the applications and services that researchers used for binary analysis and document-based research.</p>",
+    "role": "DevOps Intern",
+    "org": "Lawrence Livermore National Laboratory",
+    "date": "June – August 2024",
+    "featured": true
+  }
+]
