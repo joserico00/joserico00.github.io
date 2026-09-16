@@ -15,6 +15,7 @@ THEMES={
  'systems':('Systems & foundations','Distributed storage, operating systems, and coursework.'),
  'teaching':('Teaching & outreach','Learning through notebooks, workshops, and challenges.'),
 }
+TOTAL=len(PROJECTS)          # so adding a project to projects.json updates every count
 CV='downloads/Jose_Rodriguez_Rios_CV_2026-09.pdf'
 RESUME='downloads/Jose_Rodriguez_Rios_General_Resume_2026-09.pdf'
 
@@ -27,7 +28,7 @@ def footer(prefix=''):
 
 def page(title,description,body,prefix='',active=''):
     return f'''<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="{e(description)}"><meta name="theme-color" content="#102a43"><title>{e(title)} · José E. Rodríguez-Ríos</title><link rel="icon" type="image/svg+xml" href="{prefix}favicon.svg"><link rel="stylesheet" href="{prefix}styles.css"><script src="{prefix}site.js" defer></script></head><body><a class="skip" href="#main">Skip to content</a>{nav(prefix,active)}<main id="main">{body}</main>{footer(prefix)}</body></html>'''
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="{e(description)}"><meta name="theme-color" content="#102a43"><title>{e(title)} · José E. Rodríguez-Ríos</title><link rel="icon" type="image/svg+xml" href="{prefix}favicon.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700&family=Manrope:wght@400;500;600;650;700;750;800&display=swap"><link rel="stylesheet" href="{prefix}styles.css"><script src="{prefix}site.js" defer></script></head><body><a class="skip" href="#main">Skip to content</a>{nav(prefix,active)}<main id="main">{body}</main>{footer(prefix)}</body></html>'''
 
 def intro(number,title,description):
     return f'<section class="wrap page-intro"><p class="eyebrow">{number} / EXPLORE</p><h1>{title}</h1><p>{description}</p></section>'
@@ -39,11 +40,11 @@ def project_card(p):
     return f'''<article class="catalog-card" data-themes="{' '.join(p['themes'])}" data-project="{p['slug']}"><p class="eyebrow">{e(p['category'])}</p><h2><a href="projects/{p['slug']}.html">{e(p['title'])}</a></h2><p class="project-context">{e(p['context'])}</p><p class="catalog-summary">{e(p['summary'])}</p>{tags(p)}<div class="card-links"><a href="projects/{p['slug']}.html">Read project <span aria-hidden="true">↗</span><span class="sr-only">: {e(p['title'])}</span></a>{link}</div></article>'''
 
 def build_catalog():
-    buttons='<button type="button" data-theme="all" aria-pressed="true">All projects <span>18</span></button>'
+    buttons=f'<button type="button" data-theme="all" aria-pressed="true">All projects <span>{TOTAL}</span></button>'
     buttons+=''.join(f'<button type="button" data-theme="{k}" aria-pressed="false">{label} <span>{sum(k in p["themes"] for p in PROJECTS)}</span></button>' for k,(label,_) in THEMES.items())
     body=intro('01','Projects, connected by theme.','Explore work in scientific computing, cybersecurity, community software, and the foundations behind it. Some projects belong to more than one theme.')
-    body+=f'''<section class="wrap catalog-section" aria-label="Project collection"><div class="project-filters" aria-label="Filter projects by theme" hidden>{buttons}</div><div class="catalog-status"><p id="project-count" role="status" aria-live="polite" aria-atomic="true">Showing all 18 projects</p><a href="./#work">See the four featured projects ↑</a></div><div class="catalog-grid">{''.join(project_card(p) for p in PROJECTS)}</div><p id="no-projects" hidden>No projects match this theme. Choose another theme above.</p><noscript><p>All projects are shown. Each card links to its project page and public source where available.</p></noscript></section>'''
-    (SITE/'projects.html').write_text(page('Projects','Browse 18 projects by theme, with case studies and verified GitHub links.',body,active='projects.html'),encoding='utf-8')
+    body+=f'''<section class="wrap catalog-section" aria-label="Project collection"><div class="project-filters" aria-label="Filter projects by theme" hidden>{buttons}</div><div class="catalog-status"><p id="project-count" role="status" aria-live="polite" aria-atomic="true">Showing all {TOTAL} projects</p><a href="./#work">See the four featured projects ↑</a></div><div class="catalog-grid">{''.join(project_card(p) for p in PROJECTS)}</div><p id="no-projects" hidden>No projects match this theme. Choose another theme above.</p><noscript><p>All projects are shown. Each card links to its project page and public source where available.</p></noscript></section>'''
+    (SITE/'projects.html').write_text(page('Projects',f'Browse {TOTAL} projects by theme, with case studies and verified GitHub links.',body,active='projects.html'),encoding='utf-8')
 
 def build_cases():
     for p in PROJECTS:
@@ -112,9 +113,6 @@ def build_home():
     home=re.sub(r'<header class="site-header wrap">.*?</header>',nav(),home,flags=re.S)
     home=re.sub(r'<footer class="wrap footer">.*?</footer>',footer(),home,flags=re.S)
     home=home.replace('</head>','  <script src="site.js" defer></script>\n</head>')
-    home=home.replace('résumé','resume').replace('Résumé','Resume').replace('↓ OpenVPN','↓ WireGuard').replace('<span>Flask</span>','<span>Dash</span>')
-    home=home.replace('Four projects across science,<br>security, and community software.','A starting point across science,<br>security, and community software.')
-    home=home.replace('An open-source vulnerability-scanning platform connecting remote networks to a central server for assessment and reporting.','An open-source scanning pipeline with Nmap, OpenVAS, CSV reports, a Dash dashboard, and WireGuard connectivity.')
     def add_source(match):
         card=match.group(0)
         slug=re.search(r'projects/([^"/]+)\.html',card)[1]
@@ -124,14 +122,13 @@ def build_home():
         return card
     home=re.sub(r'<article class="project-card">.*?</article>',add_source,home,flags=re.S)
     theme_cards=''.join(f'<a href="projects.html?theme={k}"><span class="theme-title">{label} <span aria-hidden="true">↗</span></span><span>{desc}</span><small>{sum(k in p["themes"] for p in PROJECTS)} projects</small></a>' for k,(label,desc) in THEMES.items())
-    theme_section=f'''<section class="section wrap theme-section" id="themes"><div class="section-heading"><div><p class="eyebrow">EXPLORE BY THEME</p><h2>Follow what interests you.</h2></div><a class="text-link" href="projects.html">All 18 projects ↗</a></div><div class="theme-grid">{theme_cards}</div></section>'''
+    theme_section=f'''<section class="section wrap theme-section" id="themes"><div class="section-heading"><div><p class="eyebrow">EXPLORE BY THEME</p><h2>Follow what interests you.</h2></div><a class="text-link" href="projects.html">All {TOTAL} projects ↗</a></div><div class="theme-grid">{theme_cards}</div></section>'''
     # The four featured cards stay first; the full collection follows immediately.
     home=home.replace('<section class="about-section" id="about">',theme_section+'\n<section class="about-section" id="about">')
     more='''<section class="section wrap" aria-labelledby="more-title"><div class="section-heading"><div><p class="eyebrow">MORE ABOUT MY WORK</p><h2 id="more-title">The experience behind the projects.</h2></div></div><div class="explore-pages"><a href="experience.html"><span>01</span><h3>Experience ↗</h3><p>National laboratories, research, teaching, and community software.</p></a><a href="awards.html"><span>02</span><h3>Awards ↗</h3><p>CTF competitions, selective programs, scholarships, and recognition.</p></a><a href="workshops.html"><span>03</span><h3>Workshops &amp; outreach ↗</h3><p>From HPC participant to mentor and project lead.</p></a></div></section>'''
     home=re.sub(r'<section class="section wrap" aria-labelledby="more-title">.*?</section>',more,home,flags=re.S)
-    home=home.replace('Download resume','Download Resume')
     (SITE/'index.html').write_text(home,encoding='utf-8')
 
 if __name__=='__main__':
     build_home();build_catalog();build_cases();build_experience();build_awards();build_workshops()
-    print('Generated home, themed project browser, 18 project pages, experience, awards, and workshops.')
+    print(f'Generated home, themed project browser, {TOTAL} project pages, experience, awards, and workshops.')

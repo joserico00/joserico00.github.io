@@ -1,6 +1,6 @@
 # José E. Rodríguez-Ríos portfolio
 
-Static portfolio for GitHub Pages, with four featured projects, an 18-project collection filtered by seven themes, and separate experience, awards, and workshops pages. The general Resume and full CV are the public downloads.
+Static portfolio for GitHub Pages, with four featured projects, a project collection filtered by seven themes, and separate experience, awards, and workshops pages. Project counts on the site are read from `data/projects.json`, so adding a project updates them everywhere. The general Resume and full CV are the public downloads.
 
 ## Preview
 
@@ -15,7 +15,7 @@ Live address: https://joserico00.github.io/
 ## Update
 
 - Edit `data/projects.json` for project titles, descriptions, themes, GitHub links, and case studies.
-- Edit `templates/home.template` for the homepage's main introduction and featured layout.
+- Edit `templates/home.template` for the homepage's main introduction and featured layout. What the template says is what the homepage shows: the build inserts navigation, footer, theme cards and source links, but no longer rewrites any wording as it goes.
 - Edit `tools/build_site.py` for shared navigation and the experience, awards, and workshops content.
 - Run `python tools/build_site.py` to regenerate the static HTML. Commit both the source and generated pages.
 - Edit `styles.css` for site-wide appearance and responsive layouts.

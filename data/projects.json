@@ -130,7 +130,7 @@
     "body_html": "<h2>The challenge</h2><p>Organizations with limited security budgets need visibility into the devices on their networks, the services they expose, and the vulnerabilities that deserve attention. NVSRCO brings those tasks together using open-source tools.</p><h2>What I built</h2><p>I developed a scanning pipeline that discovers hosts, enumerates ports with Nmap, creates and runs OpenVAS assessment tasks, and exports findings as CSV reports. A Dash dashboard makes those results easier to explore.</p><div class=\"case-flow\" aria-label=\"Scanning workflow\"><span>Host discovery</span><b aria-hidden=\"true\">→</b><span>Nmap</span><b aria-hidden=\"true\">→</b><span>OpenVAS</span><b aria-hidden=\"true\">→</b><span>CSV reports + Dash</span></div><h2>Connecting remote networks</h2><p>The published repository includes WireGuard scripts for connecting remote client networks, Docker configurations for the scanner and dashboard, and automation wrappers for the assessment stages.</p><h2>Research output</h2><p>The project grew out of my graduate research at UPR Río Piedras. The repository preserves the May 2025 defense version alongside the scanner, and the technical report is archived in the University of Puerto Rico institutional repository.</p>",
     "role": "Graduate Researcher & Software Developer",
     "org": "University of Puerto Rico · Río Piedras",
-    "date": "August 2022 – December 2025",
+    "date": "August 2022 – May 2025",
     "featured": true
   },
   {
@@ -177,7 +177,7 @@
     "title": "Checking hidden-service links through Tor",
     "category": "SECURITY TOOLING",
     "context": "Tor link checker · Docker · 2026",
-    "summary": "A Docker-based Tor SOCKS proxy and Python scripts for finding keyword matches and checking whether .onion links respond.",
+    "summary": "A Docker-based Tor SOCKS proxy and a command-line checker that searches Ahmia and reports which onion services mention your keywords.",
     "tags": [
       "Python",
       "Tor",
@@ -189,7 +189,7 @@
       "security",
       "software"
     ],
-    "details": "Researchers monitoring mentions of a region or organization on hidden services need a repeatable, isolated way to test links. The proxy runs in Docker, the checker routes every request through it, caches links already visited, and writes matches for the keyword list to a results file.",
+    "details": "Researchers monitoring mentions of a region or organization on hidden services need a repeatable, isolated way to test links. The proxy runs in Docker, bound to loopback and reported healthy only once Tor has bootstrapped. The checker routes every request through it, matches keywords against each page's visible text rather than its markup, and remembers the links it actually reached, so a link that timed out is tried again on the next run instead of being skipped forever.",
     "featured": false
   },
   {
@@ -337,20 +337,21 @@
   },
   {
     "slug": "novel-scraper",
-    "title": "A minimal chapter scraper",
+    "title": "A scraper that asks first",
     "category": "SCRIPTING",
     "context": "novel-scraper · 2026",
-    "summary": "A short Python script that fetches a web-novel chapter and extracts its text with requests and BeautifulSoup.",
+    "summary": "A command-line tool that downloads web-novel chapters as plain text, checking robots.txt before it fetches and waiting between pages.",
     "tags": [
       "Python",
       "requests",
-      "BeautifulSoup"
+      "BeautifulSoup",
+      "unittest"
     ],
     "github": "https://github.com/joserico00/novel-scraper",
     "themes": [
       "software"
     ],
-    "details": "A small utility rather than a product. It targets one site's chapter layout and prints the chapter text; the README is candid about the limitations and what a fuller version would add.",
+    "details": "A small utility, written carefully. The chapter URL is an argument rather than a constant, the tool identifies itself, honours robots.txt, retries rate limits with backoff, and can follow a site's next-chapter links for a run of chapters. A missing element or a dead link prints one line instead of a traceback, and twenty offline tests cover the failure paths with canned pages.",
     "featured": false
   },
   {
