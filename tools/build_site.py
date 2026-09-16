@@ -23,7 +23,7 @@ def nav(prefix='',active=''):
     return f'''<header class="site-header wrap"><a class="wordmark" href="{prefix or './'}" aria-label="José Rodríguez-Ríos home">JR<span class="mark-period">.</span></a><button class="menu-toggle" type="button" aria-controls="main-navigation" aria-expanded="false" hidden>Menu <span aria-hidden="true">+</span></button><nav id="main-navigation" aria-label="Main navigation">{''.join(f'<a href="{prefix}{url}"'+(' aria-current="page"' if active==url else '')+f'>{label}</a>' for url,label in links)}<a href="{prefix}{RESUME}" download>Resume ↓</a><a class="nav-cv" href="{prefix}{CV}" download>CV ↓</a></nav></header>'''
 
 def footer(prefix=''):
-    return f'''<footer class="wrap footer"><span>© 2026 José E. Rodríguez-Ríos</span><div><a href="{prefix or './'}">Home</a><a href="{prefix}projects.html">Projects</a><a href="mailto:jerr.ccom@gmail.com">Contact</a><a href="https://github.com/joserico00">GitHub ↗</a></div><a href="#main">Back to top ↑</a></footer>'''
+    return f'''<footer class="wrap footer"><span>© 2026 José E. Rodríguez-Ríos</span><div><a href="{prefix or './'}">Home</a><a href="{prefix}projects.html">Projects</a><a href="mailto:jerr.ccom@gmail.com">Contact</a><a href="mailto:jose.rodriguez216@upr.edu">School email</a><a href="https://github.com/joserico00">GitHub ↗</a></div><a href="#main">Back to top ↑</a></footer>'''
 
 def page(title,description,body,prefix='',active=''):
     return f'''<!doctype html>
