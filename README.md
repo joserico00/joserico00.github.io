@@ -31,6 +31,6 @@ The September 15 expansion uses José's supplied project descriptions, his Resum
 
 ## License
 
-The site's code — the generator, templates, stylesheet and script — is MIT licensed,
+The site's code (the generator, templates, stylesheet and script) is MIT licensed;
 see [LICENSE](LICENSE). The written content, the CV and resume PDFs, and the project
 case studies are mine and are not offered under that licence.

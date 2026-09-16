@@ -18,7 +18,7 @@
       "teaching"
     ],
     "details": "Students new to HPC rarely get to run a real genome language model end to end. This curriculum walks two groups from tokenizing ENCODE sequences for K562 and astrocyte cell lines, through fine-tuning DNABERT and building a custom Transformer, to generating `#SBATCH` scripts and launching multi-GPU jobs with PyTorch DDP. Notebooks include pre-flight checks, a data-provenance section with ENCODE accessions, and a reference paper.",
-    "body_html": "<h2>The problem</h2><p>Scientific machine learning brings together concepts that are often taught separately: biological data, tokenization, neural networks, and the practical work of running jobs on a supercomputer. This project made that full workflow accessible within a 10–12-hour bootcamp project.</p>\n<h2>What I built</h2><p>I developed and tested DNA sequence-classification workflows using PyTorch, Hugging Face, and DNABERT-style transformers on NERSC Perlmutter and ALCF Polaris and Aurora. The work covered CPU baselines, GPU-accelerated training, and fixed-configuration experiments to isolate acceleration benefits.</p><p>I created Jupyter lessons and diagrams explaining embeddings, transformer architectures, and classification pipelines, alongside SLURM workflows using <code>sbatch</code>, <code>squeue</code>, and <code>sacct</code>.</p>\n<div class=\"case-flow\" aria-label=\"Workflow\"><span>DNA sequences</span><b aria-hidden=\"true\">→</b><span>Tokenization</span><b aria-hidden=\"true\">→</b><span>Transformer training</span><b aria-hidden=\"true\">→</b><span>Evaluation</span></div>\n<h2>A smaller sequence representation</h2><p>I compared 6-mer and byte-pair encoding (BPE) tokenization. BPE used substantially fewer tokens per sequence while achieving similar accuracy in the comparison.</p>\n<table class=\"data-table\"><caption class=\"sr-caption\">DNA tokenization comparison</caption><thead><tr><th scope=\"col\">Tokenization</th><th scope=\"col\">Tokens / sequence</th><th scope=\"col\">Accuracy</th></tr></thead><tbody><tr><th scope=\"row\">6-mer</th><td>195</td><td>81%</td></tr><tr><th scope=\"row\">BPE</th><td>34</td><td>80%</td></tr></tbody></table>\n<h2>Leading the project team</h2><p>As project lead, I coached a 10-student team within the 87-student bootcamp. Two sub-teams took different approaches and presented their findings to peers and laboratory staff.</p><ul><li>One sub-team trained a DNA transformer from scratch, compared five tokenizations, and achieved a validation AUROC of 0.887 using overlapping 6-mers.</li><li>The second fine-tuned DNABERT to classify CTCF binding on K562 data, achieving 91.7% evaluation accuracy and 99.1% training accuracy after about 17 minutes of training. The work also included external testing on an astrocyte CTCF dataset.</li></ul><p>These are results from the separate student experiments I guided; the tokenization comparison above is a distinct experiment.</p>\n<h2>Making the work reusable</h2><p>I authored a first-time project-lead guide and a reusable project template to help future interns scope a project, support a team, and prepare technical presentations.</p><h2>Explore the curriculum</h2><p>The public repository includes the two learning tracks, notebook pre-flight checks, ENCODE data provenance, and job-generation workflows for distributed training on Perlmutter.</p>",
+    "body_html": "<h2>The problem</h2><p>Scientific machine learning brings together concepts that are often taught separately: biological data, tokenization, neural networks, and the practical work of running jobs on a supercomputer. This project made that full workflow accessible within a 10–12-hour bootcamp project.</p>\n<h2>What I built</h2><p>I developed and tested DNA sequence-classification workflows using PyTorch, Hugging Face, and DNABERT-style transformers on NERSC Perlmutter and ALCF Polaris and Aurora. The work covered CPU baselines, GPU-accelerated training, and fixed-configuration experiments to isolate acceleration benefits.</p><p>I created Jupyter lessons and diagrams explaining embeddings, transformer architectures, and classification pipelines, alongside SLURM workflows using <code>sbatch</code>, <code>squeue</code>, and <code>sacct</code>.</p>\n<div class=\"case-flow\" aria-label=\"Workflow\"><span>DNA sequences</span><b aria-hidden=\"true\">→</b><span>Tokenization</span><b aria-hidden=\"true\">→</b><span>Transformer training</span><b aria-hidden=\"true\">→</b><span>Evaluation</span></div>\n<h2>A smaller sequence representation</h2><p>I compared 6-mer and byte-pair encoding (BPE) tokenization. BPE used substantially fewer tokens per sequence while achieving similar accuracy in the comparison.</p>\n<table class=\"data-table\"><caption class=\"sr-caption\">DNA tokenization comparison</caption><thead><tr><th scope=\"col\">Tokenization</th><th scope=\"col\">Tokens / sequence</th><th scope=\"col\">Accuracy</th></tr></thead><tbody><tr><th scope=\"row\">6-mer</th><td>195</td><td>81%</td></tr><tr><th scope=\"row\">BPE</th><td>34</td><td>80%</td></tr></tbody></table>\n<h2>Leading the project team</h2><p>As project lead, I coached a 10-student team within the 87-student bootcamp. Two sub-teams took different approaches and presented their findings to peers and laboratory staff.</p><ul><li>One sub-team trained a DNA transformer from scratch, compared five tokenizations, and achieved a validation AUROC of 0.887 using overlapping 6-mers.</li><li>The second fine-tuned DNABERT to classify CTCF binding on K562 data, achieving 91.7% evaluation accuracy and 99.1% training accuracy after about 17 minutes of training. The work also included external testing on an astrocyte CTCF dataset.</li></ul><p>These are results from the separate student experiments I guided; the tokenization comparison above is a distinct experiment.</p>\n<h2>Making the work reusable</h2><p>I authored a first-time project-lead guide and a reusable project template to help future interns scope a project, support a team, and prepare technical presentations.</p><h2>Explore the curriculum</h2><p>The public repository includes the two learning tracks, notebook pre-flight checks, ENCODE data provenance, and job-generation workflows for distributed training on Perlmutter. Every cluster path and the Slurm account are read from the environment, so another project can run the curriculum without editing a notebook.</p>",
     "role": "Research Intern & Bootcamp Project Lead",
     "org": "Argonne National Laboratory",
     "date": "June – August 2026",
@@ -40,7 +40,7 @@
       "ai-hpc",
       "software"
     ],
-    "details": "Choosing between Polaris, Aurora and the other ALCF machines means cross-referencing scattered documentation. The app holds a curated table of system specs with verification dates, a ranking engine that explains each score, and a browser-only deployment through stlite so it runs without a server. Two test suites cover the ranking logic, one with a mock Streamlit and one with the official AppTest harness.",
+    "details": "Choosing between Polaris, Aurora and the other ALCF machines means cross-referencing scattered documentation. The app holds a curated table of system specs with verification dates, a ranking engine that explains each score, and a browser-only deployment through stlite, pinned to one release so the published page cannot change on its own. Two suites of 25 tests cover the ranking logic: one against a mock Streamlit, one driving the real app through the official AppTest harness.",
     "featured": false
   },
   {
@@ -61,7 +61,7 @@
       "data",
       "teaching"
     ],
-    "details": "The bootcamp supplied the lesson text, starter code, and synthetic datasets. My work includes executed analyses, energy-per-job and science-per-kWh calculations, and a greedy scheduler that packs fusion jobs under 4.8 MW: 40% of the facility’s 12 MW budget. This complements my role mentoring students on the broader energy-constrained HPC project.",
+    "details": "The bootcamp supplied the lesson text, starter code, and synthetic datasets. My work includes executed analyses, energy-per-job and science-per-kWh calculations, and a greedy scheduler that packs fusion jobs under 4.8 MW: 40% of the facility’s 12 MW budget. This complements my role mentoring students on the broader energy-constrained HPC project. The notebooks run from a clean clone and reproduce the figures in the README.",
     "featured": false
   },
   {
@@ -82,7 +82,7 @@
       "research",
       "teaching"
     ],
-    "details": "Two group tracks and a master notebook take students from a single-day SIR step to full simulations with seeded synthetic data. A small helper module, an environment file, expected output figures and a reference metrics file make every run reproducible, and an HTML preview lets readers see the results without opening Jupyter.",
+    "details": "Two group tracks and a master notebook take students from a single-day SIR step to full simulations with seeded synthetic data. A small helper module, an environment file, expected output figures and a reference metrics file make every run reproducible, and an HTML preview lets readers see the results without opening Jupyter. Nineteen offline checks confirm the generator still reproduces the committed reference metrics and that the fitted R0 has not drifted.",
     "featured": false
   },
   {
@@ -104,7 +104,7 @@
       "data",
       "research"
     ],
-    "details": "As a 2023 Intro to HPC Bootcamp participant, I worked with a team to analyze temperature and power outages during the June 2016 Southwest heatwave. We used Python, pandas, and Matplotlib on Perlmutter and considered the impact on people who rely on electricity-dependent medical equipment. The project combined time-series analysis and county-level mapping, and we presented our findings in a lightning talk.",
+    "details": "As a 2023 Intro to HPC Bootcamp participant, I worked with a team to analyze temperature and power outages during the June 2016 Southwest heatwave. We used Python, pandas, and Matplotlib on Perlmutter and considered the impact on people who rely on electricity-dependent medical equipment. The project combined time-series analysis and county-level mapping, and we presented our findings in a lightning talk. The notebooks build their maps when you run them rather than shipping saved copies, which keeps the repository small enough to browse on GitHub.",
     "featured": false
   },
   {
@@ -127,7 +127,7 @@
       "software"
     ],
     "details": "Organizations with small security budgets need visibility into their exposed services. NVSRCO chains discovery, port scanning and OpenVAS scanning into CSV results, visualizes them in a Dash web dashboard, and connects remote client networks to the scanning server over WireGuard, with Docker files for the server and clients. The work produced a graduate technical report archived at the University of Puerto Rico.",
-    "body_html": "<h2>The challenge</h2><p>Organizations with limited security budgets need visibility into the devices on their networks, the services they expose, and the vulnerabilities that deserve attention. NVSRCO brings those tasks together using open-source tools.</p><h2>What I built</h2><p>I developed a scanning pipeline that discovers hosts, enumerates ports with Nmap, creates and runs OpenVAS assessment tasks, and exports findings as CSV reports. A Dash dashboard makes those results easier to explore.</p><div class=\"case-flow\" aria-label=\"Scanning workflow\"><span>Host discovery</span><b aria-hidden=\"true\">→</b><span>Nmap</span><b aria-hidden=\"true\">→</b><span>OpenVAS</span><b aria-hidden=\"true\">→</b><span>CSV reports + Dash</span></div><h2>Connecting remote networks</h2><p>The published repository includes WireGuard scripts for connecting remote client networks, Docker configurations for the scanner and dashboard, and automation wrappers for the assessment stages.</p><h2>Research output</h2><p>The project grew out of my graduate research at UPR Río Piedras. The repository preserves the May 2025 defense version alongside the scanner, and the technical report is archived in the University of Puerto Rico institutional repository.</p>",
+    "body_html": "<h2>The challenge</h2><p>Organizations with limited security budgets need visibility into the devices on their networks, the services they expose, and the vulnerabilities that deserve attention. NVSRCO brings those tasks together using open-source tools.</p><h2>What I built</h2><p>I developed a scanning pipeline that discovers hosts, enumerates ports with Nmap, creates and runs OpenVAS assessment tasks, and exports findings as CSV reports. A Dash dashboard makes those results easier to explore.</p><div class=\"case-flow\" aria-label=\"Scanning workflow\"><span>Host discovery</span><b aria-hidden=\"true\">→</b><span>Nmap</span><b aria-hidden=\"true\">→</b><span>OpenVAS</span><b aria-hidden=\"true\">→</b><span>CSV reports + Dash</span></div><h2>Connecting remote networks</h2><p>The published repository includes WireGuard scripts for connecting remote client networks, Docker configurations for the scanner and dashboard, and automation wrappers for the assessment stages. The assessment chain waits for each scan to finish before collecting its report.</p><h2>Research output</h2><p>The project grew out of my graduate research at UPR Río Piedras. The repository preserves the May 2025 defense version alongside the scanner, and the technical report is archived in the University of Puerto Rico institutional repository.</p>",
     "role": "Graduate Researcher & Software Developer",
     "org": "University of Puerto Rico · Río Piedras",
     "date": "August 2022 – May 2025",
@@ -150,7 +150,7 @@
       "security",
       "data"
     ],
-    "details": "The current notebook holds entire captures apart for training, validation, and testing; fits preprocessing on the training set only; and trains class-weighted models. It reports precision, recall, F1, balanced accuracy, ROC AUC, and precision-recall AUC. Earlier ANN, CNN, LSTM, and Transformer experiments are preserved as historical coursework, with their limitations documented separately. Their saved scores are not presented as validated performance of the current pipeline.",
+    "details": "The current notebook holds entire captures apart for training, validation, and testing; fits preprocessing on the training set only; and trains class-weighted models. It reports precision, recall, F1, balanced accuracy, ROC AUC, and precision-recall AUC. Earlier ANN, CNN, LSTM, and Transformer experiments are preserved as historical coursework, with their limitations documented separately. Their saved scores are not presented as validated performance of the current pipeline. A shared reader parses both the Zeek logs IoT-23 ships and the converted CSV exports, so the README's download instructions work either way.",
     "featured": false
   },
   {
@@ -169,7 +169,7 @@
       "security",
       "teaching"
     ],
-    "details": "Each challenge ships with a generator script that builds the puzzle directory, a walkthrough, and a flag, so instructors can rebuild a fresh workshop set in minutes. Categories include Caesar and AES ciphers, hash cracking, EXIF-based photo forensics, find and grep exercises, and a full README indexing difficulty and learning goals.",
+    "details": "Each challenge ships with a generator script that builds the puzzle directory, a walkthrough, and a flag, so instructors can rebuild a fresh workshop set in minutes, including over an existing set. Categories include Caesar and AES ciphers, hash cracking, EXIF-based photo forensics, find and grep exercises, and a full README indexing difficulty and learning goals. Every challenge is verified by building it and then solving it the way a player would.",
     "featured": false
   },
   {
@@ -220,11 +220,12 @@
     "title": "From plate reader to publication figure",
     "category": "RESEARCH SOFTWARE",
     "context": "Reporter assay analysis · 2026",
-    "summary": "A notebook that turns luciferase reporter-assay spreadsheets into tidy data, per-condition statistics against a baseline, and publication-ready plots.",
+    "summary": "A notebook that turns luciferase reporter-assay spreadsheets into tidy data, statistics against a baseline with a proper post-hoc correction, and publication-ready plots.",
     "tags": [
       "Python",
       "pandas",
       "seaborn",
+      "SciPy",
       "Jupyter"
     ],
     "github": "https://github.com/joserico00/reporter-assay-analysis",
@@ -232,7 +233,7 @@
       "research",
       "data"
     ],
-    "details": "Wet-lab spreadsheets arrive in wide plate layouts with two header rows. The notebook loads them with a reusable plate reader, reshapes to tidy form, computes summaries and baseline comparisons, and draws bar-with-points plots for the overview and each dose. Real lab data stays out of git; a synthetic example workbook demonstrates the flow.",
+    "details": "Wet-lab spreadsheets arrive in wide plate layouts with two header rows. The notebook loads them with a reusable plate reader, reshapes to tidy form, computes summaries, and draws bar-with-points plots for the overview and each dose. Significance comes from a one-way ANOVA followed by Dunnett's test, with the unadjusted Welch's t-test reported beside it. Real lab data stays out of git; a synthetic example workbook demonstrates the flow.",
     "featured": false
   },
   {
@@ -252,7 +253,7 @@
       "data",
       "software"
     ],
-    "details": "Built for the 1UPPER software-engineering project, the pipeline handles rate limits with backoff, walks IGDB with keyset pagination, checkpoints progress so interrupted runs resume, and writes its cache atomically. Credentials come from the environment, tests cover the parsing, and the README includes a responsible-use section.",
+    "details": "Built for the 1UPPER software-engineering project, the pipeline handles rate limits with backoff, walks IGDB with keyset pagination, checkpoints progress so interrupted runs resume, and writes its cache atomically. A lookup that could not be reached is treated as unknown rather than a confirmed miss, so the next run retries it. Credentials come from the environment, tests cover the parsing, and the README includes a responsible-use section.",
     "featured": false
   },
   {
@@ -272,7 +273,7 @@
     "themes": [
       "software"
     ],
-    "details": "Game masters want ambient music that loops without a click. yt2ogg processes audio in float32, normalizes with constant gain, tracks beats with a dynamic-programming grid written in pure NumPy, and cuts on the grid so the loop point lands on a downbeat. A Tk GUI and a CLI share the same pipeline, and a build script produces standalone executables with self-tests.",
+    "details": "Game masters want ambient music that loops without a click. yt2ogg processes audio in float32, normalizes with constant gain, tracks beats with a dynamic-programming grid written in pure NumPy, and cuts on the grid so the loop point lands on a downbeat. A Tk GUI and a CLI share the same pipeline, and a build script that finds its own Python produces standalone executables with self-tests on any machine, not just the one it was written on.",
     "featured": false
   },
   {
