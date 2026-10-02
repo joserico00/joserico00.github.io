@@ -134,6 +134,34 @@
     "featured": true
   },
   {
+    "slug": "sentinel-07",
+    "title": "How I solved SENTINEL-07: from a public portal to root",
+    "category": "PENETRATION TESTING",
+    "context": "GMiS 2026 Cyber Hackathon CTF · Sep 2026",
+    "summary": "A first-person penetration-test write-up: Nmap enumeration from Kali Linux, public web disclosures turned into an SSH foothold, a SUID privilege escalation to root, and a pivot into a Docker-hosted MariaDB case database, with 30 flags recorded.",
+    "tags": [
+      "Kali Linux",
+      "Nmap",
+      "SSH",
+      "Privilege escalation",
+      "Docker",
+      "MariaDB"
+    ],
+    "github": null,
+    "link": {
+      "label": "Read the write-up",
+      "url": "writeups/sentinel-07/"
+    },
+    "themes": [
+      "security"
+    ],
+    "details": "The write-up explains the reasoning behind each step of the attack chain and ends with a catalog of all 30 flags that separates flags recovered by reading a file from exploits that were independently demonstrated. It was written after the CAHSI/GMiS 2026 Cyber Hackathon, a jeopardy-style capture-the-flag competition where my team placed 2nd in the Advanced Team Category.",
+    "role": "Competitor",
+    "org": "CAHSI / GMiS 2026 Cyber Hackathon",
+    "date": "September 2026",
+    "featured": false
+  },
+  {
     "slug": "traffic-detection",
     "title": "Evaluating malicious traffic detection",
     "category": "SECURITY + MACHINE LEARNING",

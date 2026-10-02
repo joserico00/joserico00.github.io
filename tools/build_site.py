@@ -36,7 +36,9 @@ def intro(number,title,description):
 def tags(p): return '<div class="tags">'+''.join(f'<span>{e(t)}</span>' for t in p['tags'])+'</div>'
 
 def project_card(p):
-    link=f'<a href="{p["github"]}">GitHub <span aria-hidden="true">↗</span><span class="sr-only"> for {e(p["title"])}</span></a>' if p['github'] else '<span class="resource-note">National laboratory experience</span>'
+    if p['github']: link=f'<a href="{p["github"]}">GitHub <span aria-hidden="true">↗</span><span class="sr-only"> for {e(p["title"])}</span></a>'
+    elif p.get('link'): link=f'<a href="{p["link"]["url"]}">{e(p["link"]["label"])} <span aria-hidden="true">↗</span><span class="sr-only"> for {e(p["title"])}</span></a>'   # e.g. a published write-up instead of a repository
+    else: link='<span class="resource-note">National laboratory experience</span>'
     return f'''<article class="catalog-card" data-themes="{' '.join(p['themes'])}" data-project="{p['slug']}"><p class="eyebrow">{e(p['category'])}</p><h2><a href="projects/{p['slug']}.html">{e(p['title'])}</a></h2><p class="project-context">{e(p['context'])}</p><p class="catalog-summary">{e(p['summary'])}</p>{tags(p)}<div class="card-links"><a href="projects/{p['slug']}.html">Read project <span aria-hidden="true">↗</span><span class="sr-only">: {e(p['title'])}</span></a>{link}</div></article>'''
 
 def build_catalog():
@@ -54,8 +56,15 @@ def build_cases():
         if p['slug']=='fusion-energy':
             content+='<div class="result"><strong>4.8 MW of a 12 MW facility budget</strong><p>The scheduler’s constraint is the fusion-workload allocation, while the mentoring project considered the broader facility budget.</p></div>'
         meta=''.join(f'<div><span>{label}</span><p>{e(p[key])}</p></div>' for key,label in [('role','MY ROLE'),('org','ORGANIZATION'),('date','WHEN')] if p.get(key))
-        github=f'<a href="{p["github"]}" class="button primary">View on GitHub ↗</a>' if p['github'] else ''
-        resources=f'<a href="{p["github"]}">Source code and documentation ↗</a>' if p['github'] else '<p>This case study describes my internship contributions. No public repository is linked.</p>'
+        if p['github']:
+            github=f'<a href="{p["github"]}" class="button primary">View on GitHub ↗</a>'
+            resources=f'<a href="{p["github"]}">Source code and documentation ↗</a>'
+        elif p.get('link'):   # published write-up or page hosted on this site (url is site-root relative)
+            github=f'<a href="../{p["link"]["url"]}" class="button primary">{e(p["link"]["label"])} ↗</a>'
+            resources=f'<a href="../{p["link"]["url"]}">{e(p["link"]["label"])} ↗</a>'
+        else:
+            github=''
+            resources='<p>This case study describes my internship contributions. No public repository is linked.</p>'
         if p['slug']=='nvsrco': resources+='<a href="https://repositorio.upr.edu/handle/11721/4342">Graduate technical report ↗</a>'
         theme_links=''.join(f'<a class="theme-link" href="../projects.html?theme={k}">{THEMES[k][0]}</a>' for k in p['themes'])
         related=[x for x in PROJECTS if x['slug']!=p['slug'] and set(x['themes'])&set(p['themes'])][:3]
