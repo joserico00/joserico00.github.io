@@ -1,4 +1,4 @@
-# José E. Rodríguez-Ríos portfolio
+# Jose Emmanuel Rodriguez Rios portfolio
 
 Static portfolio for GitHub Pages, with four featured projects, a project collection filtered by seven themes, and separate experience, awards, and workshops pages. Project counts on the site are read from `data/projects.json`, so adding a project updates them everywhere. The general Resume and full CV are the public downloads.
 

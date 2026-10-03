@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="José E. Rodríguez-Ríos, computer scientist and Ph.D. student working across cybersecurity, AI, high-performance computing, and research software.">
+  <meta name="description" content="Jose Emmanuel Rodriguez Rios, computer scientist and Ph.D. student working across cybersecurity, AI, high-performance computing, and research software.">
   <meta name="theme-color" content="#102a43">
-  <title>José E. Rodríguez-Ríos · Computer Scientist</title>
+  <title>Jose Emmanuel Rodriguez Rios · Computer Scientist</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,14 +15,14 @@
 <body>
   <a class="skip" href="#main">Skip to content</a>
   <header class="site-header wrap">
-    <a class="wordmark" href="./" aria-label="José Rodríguez-Ríos home">J<span>R</span><span class="mark-period">.</span></a>
+    <a class="wordmark" href="./" aria-label="Jose Emmanuel Rodriguez Rios home">J<span>R</span><span class="mark-period">.</span></a>
     <nav aria-label="Main navigation"><a href="#work">Selected work</a><a href="#about">About</a><a href="#contact">Contact</a><a class="nav-cv" href="downloads/Jose_Rodriguez_Rios_CV_2026-09.pdf" download>CV <span aria-hidden="true">↗</span></a></nav>
   </header>
   <main id="main">
     <section class="hero wrap" aria-labelledby="hero-title">
       <div class="hero-copy">
         <p class="eyebrow">COMPUTER SCIENTIST · SALINAS, PUERTO RICO</p>
-        <h1 id="hero-title">José E.<br>Rodríguez-Ríos<span class="accent">.</span></h1>
+        <h1 id="hero-title">Jose Emmanuel<br>Rodriguez Rios<span class="accent">.</span></h1>
         <p class="hero-line">Research software.<br>Scientific computing.<br><span>Cybersecurity.</span></p>
         <p class="intro">I build software for scientific research, network defense, and my community. My work spans AI on supercomputers, cyber-research infrastructure, and solar-energy reporting.</p>
         <div class="actions"><a class="button primary" href="#work">Explore my work <span aria-hidden="true">↓</span></a><a class="text-link" href="downloads/Jose_Rodriguez_Rios_General_Resume_2026-09.pdf" download>Download Resume <span aria-hidden="true">↗</span></a></div>
@@ -49,6 +49,6 @@
     <section class="section wrap" aria-labelledby="more-title"><div class="section-heading"><div><p class="eyebrow">03 / MORE TO EXPLORE</p><h2 id="more-title">Experiments, systems, and teaching.</h2></div></div><div class="extra-grid"><article><span class="small-index">01</span><h3>Machine learning for security</h3><p>Compared ANN, CNN, LSTM, and Transformer classifiers on IoT-23 traffic. The LSTM achieved 99.8% test accuracy on the project’s selected capture. A separate Malimg CNN reached 97.7% validation accuracy across 25 malware families.</p></article><article><span class="small-index">02</span><h3>Operating systems</h3><p>Page-replacement algorithms, producer-consumer coordination, and a distributed file system with metadata and datanode servers.</p><a class="text-link" href="https://github.com/joserico00/Operating-System-Projects">Explore the source <span aria-hidden="true">↗</span></a></article><article><span class="small-index">03</span><h3>Learning through challenges</h3><p>Created CTF challenges and outreach activities for about 60 Puerto Rico high-school students. Part of the three-member team that placed first out of 30 teams at BSides Puerto Rico 2024.</p></article></div></section>
     <section class="contact-section" id="contact"><div class="wrap contact-inner"><div><p class="eyebrow">04 / GET IN TOUCH</p><h2>Let’s talk research<br>and software.</h2><a class="email-link" href="mailto:jerr.ccom@gmail.com">jerr.ccom@gmail.com <span aria-hidden="true">↗</span></a></div><div class="contact-links"><a href="mailto:jose.rodriguez216@upr.edu">jose.rodriguez216@upr.edu <span>School email ↗</span></a><a href="https://github.com/joserico00">GitHub <span aria-hidden="true">↗</span></a><a href="https://www.linkedin.com/in/jose-rodriguez-rios/">LinkedIn <span aria-hidden="true">↗</span></a><a href="downloads/Jose_Rodriguez_Rios_General_Resume_2026-09.pdf" download>Resume <span>PDF ↓</span></a><a href="downloads/Jose_Rodriguez_Rios_CV_2026-09.pdf" download>Full CV <span>PDF ↓</span></a></div></div></section>
   </main>
-  <footer class="wrap footer"><span>© 2026 José E. Rodríguez-Ríos</span><span>Salinas, Puerto Rico · English / Español</span><a href="#main">Back to top ↑</a></footer>
+  <footer class="wrap footer"><span>© 2026 Jose Emmanuel Rodriguez Rios</span><span>Salinas, Puerto Rico · English / Español</span><a href="#main">Back to top ↑</a></footer>
 </body>
 </html>
